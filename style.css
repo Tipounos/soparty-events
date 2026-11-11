@@ -1417,6 +1417,15 @@ input:focus-visible {
 }
 
 @media (max-width: 860px) {
+  .hero {
+    flex-direction: unset;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .hero__content {
+    text-align: center;
+  }
   .main-nav {
     position: fixed;
     top: var(--header-height);
