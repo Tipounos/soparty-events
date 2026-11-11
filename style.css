@@ -451,8 +451,9 @@ input:focus-visible {
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: left;
+  justify-content: end;
   padding-top: var(--header-height);
   background: linear-gradient(
     160deg,
@@ -460,6 +461,7 @@ input:focus-visible {
     var(--color-ink-light) 100%
   );
   overflow: hidden;
+  padding: var(--space-lg);
 }
 
 .hero__image {
@@ -469,23 +471,22 @@ input:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
-  filter: blur(4px);
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(20, 20, 20, 0.35) 0%,
-    rgba(20, 20, 20, 0.60) 100%
+    25deg,
+    rgba(20, 20, 20, 0.75) 20%,
+    transparent 100%
   );
 }
 
 .hero__content {
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   max-width: 780px;
   padding-inline: var(--space-md);
   color: var(--color-white);
