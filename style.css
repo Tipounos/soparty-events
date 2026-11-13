@@ -5,6 +5,11 @@
    ci-dessous : modifie uniquement ces valeurs pour changer le style global.
    ========================================================================== */
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url(assets/fonts/Satoshi-Variable.woff2);
+}
+
 :root {
   /* Couleurs — thème clair, accent doré */
   --color-ink: #141414;
@@ -22,7 +27,7 @@
   --color-border: rgba(20, 20, 20, 0.12);
 
   /* Typographie */
-  --font-display: serif;
+  --font-display: 'Satoshi', serif;
   --font-body: "Poppins", "Segoe UI", sans-serif;
 
   --fs-h1: clamp(2.4rem, 5vw + 1rem, 4.6rem);
@@ -492,7 +497,6 @@ input:focus-visible {
   position: relative;
   z-index: 2;
   text-align: left;
-  max-width: 780px;
   padding-inline: var(--space-md);
   color: var(--color-white);
 }
@@ -500,7 +504,7 @@ input:focus-visible {
 .hero__title {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 5.5vw, 4rem);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.15;
   margin-block: var(--space-sm) var(--space-md);
   text-wrap: balance;
@@ -525,6 +529,9 @@ input:focus-visible {
 
 .hero__btn {
   margin-top: var(--space-sm);
+  background: var(--color-cream-dark);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
 }
 
 /* ==========================================================================
@@ -1424,6 +1431,7 @@ input:focus-visible {
 @media (max-width: 860px) {
   .hero__content {
     padding: 16px;
+    padding-bottom: 6rem;
   }
   .hero {
     padding: 0;
