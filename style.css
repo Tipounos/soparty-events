@@ -420,14 +420,19 @@ input:focus-visible {
   display: none;
   flex-direction: column;
   gap: 5px;
-  width: 26px;
-  padding: 4px;
+  width: 22px;
+  height: fit-content;
+  box-sizing: content-box;
+  padding: 16px;
+  background: hsla(0, 0%, 100%, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius-sm);
 }
 
 .burger__bar {
   height: 2px;
   width: 100%;
-  background: var(--color-text);
+  background: var(--color-ink-light);
   transition:
     transform var(--transition-fast),
     opacity var(--transition-fast);
@@ -1417,14 +1422,23 @@ input:focus-visible {
 }
 
 @media (max-width: 860px) {
+  .hero__content {
+    padding: 16px;
+  }
   .hero {
-    flex-direction: unset;
-    justify-content: center;
-    align-items: center;
     padding: 0;
   }
-  .hero__content {
-    text-align: center;
+  .logo {
+    background: hsla(0, 0%, 100%, 0.25);
+    padding: var(--space-xs) var(--space-lg);
+    border-radius: var(--radius-sm);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--color-border);
+  }
+  .site-header {
+    background: transparent;
+    border-bottom: none;
+    backdrop-filter: none;
   }
   .main-nav {
     position: fixed;
