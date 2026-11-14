@@ -54,6 +54,7 @@
   --shadow-strong: 0 20px 50px rgba(20, 20, 20, 0.22);
 
   --header-height: 84px;
+  --mobile-header-height: 48px;
 }
 
 /* ==========================================================================
@@ -317,7 +318,7 @@ input:focus-visible {
   top: 0;
   height: var(--header-height);
   z-index: 500;
-  background: rgb(232, 226, 214);
+  background: var(--color-cream-dark);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -420,18 +421,19 @@ input:focus-visible {
 .header__cta {
   white-space: nowrap;
 }
-
+ 
 .burger {
   display: none;
   flex-direction: column;
   gap: 5px;
-  width: 22px;
-  height: fit-content;
-  box-sizing: content-box;
+  width: var(--mobile-header-height);
+  height: var(--mobile-header-height);
   padding: 16px;
-  background: hsla(0, 0%, 100%, 0.25);
+  background: var(--color-cream-dark);
   backdrop-filter: blur(4px);
   border-radius: var(--radius-sm);
+  outline: 1px solid var(--color-border);
+  box-shadow: var(--shadow-strong);
 }
 
 .burger__bar {
@@ -1437,11 +1439,17 @@ input:focus-visible {
     padding: 0;
   }
   .logo {
-    background: hsla(0, 0%, 100%, 0.25);
-    padding: var(--space-xs) var(--space-lg);
+    background: var(--color-cream-dark);
+    padding: 0 var(--space-xs);
+    height: var(--mobile-header-height);
     border-radius: var(--radius-sm);
-    backdrop-filter: blur(4px);
     border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo img {
+    height: calc(var(--mobile-header-height) - 10px);
   }
   .site-header {
     background: transparent;
@@ -1450,7 +1458,8 @@ input:focus-visible {
   }
   .main-nav {
     position: fixed;
-    top: var(--header-height);
+    top: 0;
+    padding-top: var(--mobile-header-height);
     inset-inline: 0;
     background: var(--color-cream);
     border-bottom: 1px solid var(--color-border);
@@ -1461,19 +1470,34 @@ input:focus-visible {
       transform var(--transition-fast),
       opacity var(--transition-fast),
       visibility var(--transition-fast);
+    min-height: 50vh;
   }
 
+  body:has(.main-nav.is-open) main {
+    filter: brightness(70%);
+  }
   .main-nav.is-open {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
+    box-shadow: var(--shadow-strong);
+    backdrop-filter: brightness(80%);
   }
 
   .main-nav__list {
     flex-direction: column;
     padding: var(--space-md);
-    gap: var(--space-sm);
     text-align: center;
+    height: 100%;
+  }
+
+  .main-nav.is-open .bottom-shape {
+    clip-path: polygon(0% 0%, 0% 5%, 100% 100%, 100% 0%);
+    background: var(--color-cream);
+    height: 10vh;
+    width: 100vw;
+    position: absolute;
+    bottom: -10vh;
   }
 
   .main-nav__cta-item {
